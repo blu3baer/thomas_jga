@@ -22,14 +22,9 @@
     <div class="sidebar">
       <h2>WannaLisa 2.0</h2>
       <div class="timer-box">
-        <p>Payment will be raised on:</p>
-        <p>25.5.2025 00:00</p>
-        <p id="timer"></p>
-      </div>
-      <div class="timer-box">
         <p>Lisa will be lost on:</p>
         <p>25.5.2025 00:00</p>
-        <p id="timer2"></p>
+        <p id="timer"></p>
       </div>
       <div class="btc-box">
         <p>Send 6 btc to this address:</p>
@@ -129,7 +124,6 @@ Für jede bestandene Prüfung gibt es einen Bitcoin – und du kommst Lisa ein S
   <script>
     const end = 1748124000000;
     const timer = document.getElementById("timer");
-    const timer2 = document.getElementById("timer2");
 
     function updateTimer() {
       const now = new Date().getTime();
@@ -140,9 +134,9 @@ Für jede bestandene Prüfung gibt es einen Bitcoin – und du kommst Lisa ein S
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        timer.innerHTML = timer2.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        timer.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
       } else {
-        timer.innerHTML = timer2.innerHTML = "⏳ Time's up!";
+        timer.innerHTML = "⏳ Time's up!";
       }
     }
     setInterval(updateTimer, 1000);
