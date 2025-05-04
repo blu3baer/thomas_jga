@@ -15,8 +15,24 @@
     button { margin-top: 5px; padding: 6px 12px; background: #b00000; color: white; border: none; cursor: pointer; }
     button:hover { background: #800000; }
     .clue { display: none; background: #eee; padding: 10px; border: 1px solid #ccc; margin-top: 10px; }
+   <! -- slide  --> 
+     .slide-box {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+
+  .slide-box.open {
+    max-height: 1000px; /* adjust if your content is taller */
+  }
   </style>
 </head>
+  <script>
+  function togglePuzzles() {
+    const box = document.getElementById("puzzleSection");
+    box.classList.toggle("open");
+  }
+</script>
 <body>
   <div class="container">
     <div class="sidebar">
@@ -53,7 +69,9 @@ Doch dafür musst du zwei Dinge tun:</p>
 </ol>
       </div>
       <div class="section">
-        <h2>Wie verdiene ich Bitcoin?</h2>
+<h2 onclick="togglePuzzles()" style="cursor: pointer;">
+  Ok, los geht's! <span style="font-size: 1.2em;">👇</span>
+</h2>
         <p>Löse die Rätsel.<br>
 Finde uns.<br>
 Meistere die Herausforderungen.<br><br>
@@ -61,6 +79,8 @@ Für jede bestandene Prüfung gibt es einen Bitcoin – und du kommst Lisa ein S
       </div>
       <div class="section">
         <h2>Ok, los geht's!</h2>
+
+       <div id="puzzleSection" class="slide-box">
         <div id="step1">
           <h3>🔒 Schlüssel</h3>
           <p>Engima, RSA, PGP, ECC – Verschlüsselung ist keine neue Erfindung.  
@@ -117,6 +137,7 @@ Für jede bestandene Prüfung gibt es einen Bitcoin – und du kommst Lisa ein S
           <p>🏁Ein Tag für Freiheit & Abenteuer. Und wir haben den perfekten Treffpunkt. Komm zur Arena, wir sehen uns am <strong>nackten Mann</strong>!</p>
            </div>
         </div>
+         </div>
       </div>
     </div>
   </div>
