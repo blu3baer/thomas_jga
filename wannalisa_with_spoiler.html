@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Oooops, deine Verlobte wurde entführt!</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #b00000; color: white; }
+    .container { display: flex; flex-direction: row; height: 100vh; }
+    .sidebar { width: 300px; background-color: #900000; padding: 20px; box-sizing: border-box; }
+    .main { flex: 1; padding: 20px; background-color: #fff; color: black; overflow-y: auto; }
+    .section { margin-bottom: 30px; }
+    .timer-box { background-color: #600; padding: 10px; margin-bottom: 20px; border: 1px solid #fff; }
+    .btc-box { background-color: #444; padding: 10px; border: 1px solid #ccc; color: #ff0; }
+    input[type=text], input[type=password] { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 5px; padding: 6px 12px; background: #b00000; color: white; border: none; cursor: pointer; }
+    button:hover { background: #800000; }
+    .clue { display: none; background: #eee; padding: 10px; border: 1px solid #ccc; margin-top: 10px; }
+
+    .slide-box { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; }
+    .slide-box.open { max-height: 3000px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>WannaLisa 2.0</h2>
+      <div class="timer-box">
+        <p>Lisa will be lost on:</p>
+        <p>25.5.2025 00:00</p>
+        <p id="timer"></p>
+      </div>
+      <div class="btc-box">
+        <p>Send 6 btc to this address:</p>
+        <code><span style='word-break: break-all;'>bc1M4TZ3M4lk1h4TD31N3v3Rl0vt33nTFu3rt</span></code>
+      </div>
+      <p><a href="https://bitcoin.org/de/" target="_blank" style="color:white;">About bitcoin</a></p>
+      <p><a href="https://bisq.network/getting-started/" target="_blank" style="color:white;">How to buy bitcoin?</a></p>
+      <p><a href="#" onclick="alert('Ruf Matze an!'); return false;" style="color:white;">Contact Us</a></p>
+      <button onclick="alert('where is my money?!')">Check Payment</button>
+      <button onclick="alert('🐢 your princess is in another castle')">Free Lisa!</button>
+    </div>
+    <div class="main">
+      <h1>Oooops, deine Verlobte wurde entführt!</h1>
+      <div class="section">
+        <h2>Was ist passiert?</h2>
+        <p>Du hast nicht gut genug auf sie aufgepasst.<br>Jetzt ist sie weg – und für dich nicht mehr erreichbar.</p>
+      </div>
+      <div class="section">
+        <h2>Wie bekomme ich Lisa zurück?</h2>
+        <p>Wir garantieren dir, dass du Lisa sicher und unversehrt zurückbekommst.<br>
+        Doch dafür musst du zwei Dinge tun:</p>
+        <ol>
+          <li>Verdiene 6 BTC und zahle das Lösegeld an die angegebene Adresse.</li>
+          <li>Verbringe den Junggesellenabschied mit uns – bis zum bitteren Ende.</li>
+        </ol>
+      </div>
+      <div class="section">
+        <h2>Wie verdiene ich Bitcoin?</h2>
+        <p>Löse die Rätsel.<br>Finde uns.<br>Meistere die Herausforderungen.<br><br>
+        Für jede bestandene Prüfung gibt es einen Bitcoin – und du kommst Lisa ein Stück näher.</p>
+      </div>
+      <div class="section">
+        <h2 onclick="togglePuzzles()" style="cursor: pointer;">Ok, los geht's! 👇</h2>
+        <div id="puzzleSection" class="slide-box">
+          [Puzzle steps go here – insert your Rätsel divs inside this container]
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePuzzles() {
+      const box = document.getElementById("puzzleSection");
+      box.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
