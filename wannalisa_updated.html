@@ -27,12 +27,6 @@
   }
   </style>
 </head>
-  <script>
-  function togglePuzzles() {
-    const box = document.getElementById("puzzleSection");
-    box.classList.toggle("open");
-  }
-</script>
 <body>
   <div class="container">
     <div class="sidebar">
@@ -175,6 +169,11 @@ Für jede bestandene Prüfung gibt es einen Bitcoin – und du kommst Lisa ein S
         alert("Falsches Passwort. Versuch's nochmal!");
       }
     }
+  function togglePuzzles() {
+    const box = document.getElementById("puzzleSection");
+    box.classList.toggle("open");
+  }
+    
   </script>
 </body>
 </html>
