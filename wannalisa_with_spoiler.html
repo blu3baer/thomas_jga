@@ -61,9 +61,56 @@
         Für jede bestandene Prüfung gibt es einen Bitcoin – und du kommst Lisa ein Stück näher.</p>
       </div>
       <div class="section">
-        <h2 onclick="togglePuzzles()" style="cursor: pointer;">Ok, los geht's! 👆 (click)</h2>
+        <h2 onclick="togglePuzzles()" style="cursor: pointer;">Ok, los geht's! 👇</h2>
         <div id="puzzleSection" class="slide-box">
-          [Puzzle steps go here – insert your Rätsel divs inside this container]
+          <div id="step1">
+            <h3>🔒 Schlüssel</h3>
+            <p>Engima, RSA, PGP, ECC – Verschlüsselung ist keine neue Erfindung. Schon die Römer verschlüsselten ihre Nachrichten. Nach dem Vorbild Cäsars ist auch diese Botschaft codiert.<br><br>📩 Yvn zmnoz Kvnnrjmo dno Fmtkojbmvkcdz</p>
+            Den passenden Schlüssel findest du [Placeholder].<br><br>
+            <input type="text" id="pw1" placeholder="Passwort eingeben">
+            <button onclick="checkPassword(1, 'Kryptographie')">Unlock</button>
+            <div id="clue1" class="clue">
+              <p>Auf zum nächsten Rätsel – die Zeit rennt! ⏰</p>
+              <p>📍 49.029316, 8.406079</p>
+              <p>🔎 Hinweis: Suche nach [placeholder]</p>
+              <p>🚴‍♂️ Nimm das Fahrrad – zu Fuß wird’s knapp.</p>
+              <p>🔐 Der Zahlencode für das Schloss ist Lisas Geburtstag.</p>
+            </div>
+          </div>
+          <div id="step2">
+            <h3>🌳 Baum</h3>
+            <p>Puzzel mich. Dann scann mich. 🧩📷</p>
+            <input type="text" id="pw2" placeholder="Passwort eingeben" disabled>
+            <button onclick="checkPassword(2, 'Seed')" disabled>Unlock</button>
+            <div id="clue2" class="clue">
+              <p>🌳 Ein Baum ist gepuzzelt – und ein Versprechen gepflanzt.</p>
+              <p>Wenn du ihn gut pflegst, wächst daraus etwas Großes… 💍</p>
+              <p>📍 49.0047, 8.3851</p>
+              <p>🧊 „Wenn du etwas bewahren willst, frier es ein.<br>Ich bin aus Metall – und mag es kalt.“</p>
+            </div>
+          </div>
+          <div id="step3">
+            <h3>🧊 Eiskalt</h3>
+            <p>🔨 🧰 📝</p>
+            <input type="text" id="pw3" placeholder="Passwort eingeben" disabled>
+            <button onclick="checkPassword(3, 'Coldwallet')" disabled>Unlock</button>
+            <div id="clue3" class="clue">
+              <p>❄️ Du bist fast am Ziel!</p>
+              <p>Um deine Bitcoins zu verdienen, musst du dich jetzt beweisen – in echten Herausforderungen.</p>
+              <p>Und wo könnte man besser starten als in einer Arena? 🏟️</p>
+              <p>Eine befindet sich ganz in deiner Nähe…</p>
+              <p>💡 Die Anfangsbuchstaben der letzten drei Passwörter zeigen dir den Ort – und sind gleichzeitig das nächste Passwort.</p>
+            </div>
+          </div>
+          <div id="step4">
+            <h3>🏛️ Arena</h3>
+            <p>⚽ ALL CAPS</p>
+            <input type="text" id="pw4" placeholder="Passwort eingeben" disabled>
+            <button onclick="checkPassword(4, 'KSC')" disabled>Unlock</button>
+            <div id="clue4" class="clue">
+              <p>🏁Ein Tag für Freiheit & Abenteuer. Und wir haben den perfekten Treffpunkt. Komm zur Arena, wir sehen uns am <strong>nackten Mann</strong>!</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -73,6 +120,39 @@
     function togglePuzzles() {
       const box = document.getElementById("puzzleSection");
       box.classList.toggle("open");
+    }
+
+    const end = 1748124000000;
+    const timer = document.getElementById("timer");
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = end - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        timer.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      } else {
+        timer.innerHTML = "⏳ Time's up!";
+      }
+    }
+    setInterval(updateTimer, 1000);
+
+    function checkPassword(step, correct) {
+      const input = document.getElementById("pw" + step);
+      if (!input) return;
+      if (input.value.trim().toLowerCase() === correct.toLowerCase()) {
+        document.getElementById("clue" + step).style.display = "block";
+        if (step < 4) {
+          document.getElementById("pw" + (step + 1)).disabled = false;
+          document.querySelector("#step" + (step + 1) + " button").disabled = false;
+        }
+      } else {
+        alert("Falsches Passwort. Versuch's nochmal!");
+      }
     }
   </script>
 </body>
