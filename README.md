@@ -2,13 +2,10 @@ todo:
 
 - brief anfertigen (qr code, live standort mit matze teilen, kostüm anziehen)
 - [placeholder] ersetzen für Hinweis für das Baumrätsel (Ort des Puzzles)
-- Coldwallet stempeln ( schraube, 12 unterlegscheiben, mutter, behälter)
+- Coldwallet ( schraube, mutter, behälter)
 - Puzzle malen
-- 3d print schlüssel
 
-- eimer
-- eis
-
+- crushed-ice kaufen
 
 - QR code für webseite
 
