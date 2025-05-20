@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Intro</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    #continue {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      background-color: #b00000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+    }
+    #continue:hover {
+      background-color: #800000;
+    }
+  </style>
+</head>
+<body>
+  <img src="test_video.gif" alt="Intro Video">
+  <button id="continue" onclick="window.location.href='wannalisa_updated.html'">Weiter zur Mission</button>
+
+  <script>
+    // Wait 10 seconds before showing the button
+    setTimeout(() => {
+      document.getElementById('continue').style.display = 'block';
+    }, 10000);
+  </script>
+</body>
+</html>
