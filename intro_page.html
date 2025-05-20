@@ -37,15 +37,19 @@
     }
   </style>
 </head>
-<body>
-  <img src="test_video.gif" alt="Intro Video">
-  <button id="continue" onclick="window.location.href='wannalisa_updated.html'">Weiter zur Mission</button>
+<video id="introVideo" autoplay controls onended="showButton()" style="max-width: 100%;">
+  <source src="test_video.mp4" type="video/mp4">
+  Dein Browser unterstützt kein HTML5-Video.
+</video>
+<button id="continue" onclick="window.location.href='wannalisa_updated.html'" style="display:none;">
+  Weiter zur Mission
+</button>
 
-  <script>
-    // Wait 5 seconds before showing the button
-    setTimeout(() => {
-      document.getElementById('continue').style.display = 'block';
-    }, 5000);
-  </script>
+<script>
+  function showButton() {
+    document.getElementById('continue').style.display = 'block';
+  }
+</script>
+
 </body>
 </html>
